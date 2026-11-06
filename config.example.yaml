@@ -1,0 +1,23 @@
+# Copy to config.yaml and fill in. Do not commit config.yaml (it holds credentials).
+
+ftd:
+  host: "10.0.0.5"          # FTD management IP/FQDN (FDM UI address)
+  port: 443
+  username: "admin"
+  password: "changeme"
+  verify_ssl: false          # true once you install a trusted mgmt cert
+  # ca_bundle: "C:\\path\\to\\ca.pem"   # used only if verify_ssl: true
+
+# ASA "nameif" -> FTD logical interface name mapping.
+# ASA and FTD interface objects are unrelated even after a like-for-like hardware
+# swap, so this MUST be filled in by hand before running migrate_routes.py or
+# migrate_s2s_vpn.py. Get FTD logical names from Device > Interfaces in FDM,
+# or GET /api/fdm/latest/devices/default/interfaces/physicalinterfaces.
+interface_map:
+  outside: "outside"
+  inside: "inside"
+  # dmz: "dmz"
+
+options:
+  dry_run: true              # print what would be sent instead of calling the API
+  skip_existing: true        # if an object with the same name exists, reuse it instead of failing

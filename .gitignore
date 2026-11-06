@@ -1,0 +1,25 @@
+config.yaml
+vpn_secrets.yaml
+snmp_secrets.yaml
+logging_secrets.yaml
+parsed/
+logs/
+__pycache__/
+*.pyc
+
+# Personal Claude Code settings (permission rules), not shared with the team.
+.claude/settings.local.json
+
+# Local orchestration skill, not shared with the team.
+.claude/skills/run-migration/
+
+# Contains real internal IPs/peer addresses from this specific migration.
+REMAINING_ACTIONS.md
+
+# Real ASA config exports contain cleartext VPN pre-shared keys -- keep any
+# you drop in this folder out of git. (sample/sample_asa.cfg is fake data
+# and is fine to keep tracked.)
+asa-config.txt
+*.cfg
+!sample/sample_asa.cfg
+*-running-config*
